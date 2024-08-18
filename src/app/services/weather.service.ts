@@ -7,13 +7,17 @@ import { Observable } from 'rxjs';
 })
 export class WeatherService {
 
-  api_url="https://api.openweathermap.org/data/2.5/weather?q=London&appid=62ff94c8139aae06b3d3e0c029d6c116";
+  api_url=`https://api.openweathermap.org/data/2.5/weather?q=London&appid=62ff94c8139aae06b3d3e0c029d6c116`;
+  new_url='';
 
   constructor(private httpClient : HttpClient) {
    }
+   changeUrl(city : string):string{
+    return this.new_url=`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=62ff94c8139aae06b3d3e0c029d6c116`;
+ }
 
    getWeather(): Observable<any>{
-    return this.httpClient.get(this.api_url).pipe(res=> res);
+    return this.httpClient.get(this.new_url).pipe(res=> res);
   }
 
  

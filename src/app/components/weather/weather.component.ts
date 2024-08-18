@@ -12,11 +12,22 @@ import { WeatherInterface } from '../../interfaces/weather.interface';
 export class WeatherComponent implements OnInit{
   
   weatherList: WeatherInterface | undefined;
-
+  city : string ='';
 
   constructor(private weatherService : WeatherService){}
   
   ngOnInit(): void {
+  }
+
+  onSubmit(event: Event, city: string) {
+    event.preventDefault();
+    this.getCity(city);
+  }
+    
+
+  getCity(city:string) {
+    this.city=city;
+    this.weatherService.changeUrl(this.city);
     this.getWeather();
   }
 
@@ -26,8 +37,8 @@ export class WeatherComponent implements OnInit{
         if (result) {
           this.weatherList = result;
           this.convertTemperatures(this.weatherList?.main);
+          console.log(this.city);
         }
-        console.log(this.weatherList);
       },
       error: (err) => {
         console.log(err);
