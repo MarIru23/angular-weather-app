@@ -7,7 +7,6 @@ import { Observable } from 'rxjs';
 })
 export class WeatherService {
 
-  api_url=`https://api.openweathermap.org/data/2.5/weather?q=London&appid=62ff94c8139aae06b3d3e0c029d6c116`;
   new_url='';
 
   constructor(private httpClient : HttpClient) {
