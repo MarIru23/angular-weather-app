@@ -46,14 +46,14 @@
 
 @if (weatherList) {
   <div>
-    <h2>{{ weatherList?.name }}</h2><h2>{{weatherList.sys.country}}</h2>
-    <p>{{weatherList?.main?.temp}} Cº</p>
-    <p>{{weatherList?.weather?.main}}</p>
-    <p>{{weatherList?.weather?.description}}</p>
-    <p>Máximas: {{weatherList?.main?.temp_max }} Cº</p>
-    <p>Sensación térmica: {{weatherList?.main?.feels_like}} Cº</p>
-    <p>Humedad: {{weatherList?.main?.humidity}} %</p>
-    <p>Viento: {{weatherList?.wind?.speed}} Km/h</p>
+    <h2>{{ weatherList.name }}</h2><h2>{{weatherList.sys.country}}</h2>
+    <p>{{weatherList.main.temp}} Cº</p>
+    <p>{{weatherList.weather.main}}</p>
+    <p>{{weatherList.weather.description}}</p>
+    <p>Máximas: {{weatherList.main.temp_max }} Cº</p>
+    <p>Sensación térmica: {{weatherList.main.feels_like}} Cº</p>
+    <p>Humedad: {{weatherList.main.humidity}} %</p>
+    <p>Viento: {{weatherList.wind.speed}} Km/h</p>
   </div>
 }
 
