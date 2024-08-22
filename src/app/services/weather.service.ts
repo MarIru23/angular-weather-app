@@ -16,7 +16,7 @@ export class WeatherService {
  }
 
    getWeather(): Observable<any>{
-    return this.httpClient.get(this.new_url).pipe(res=> res);
+    return this.httpClient.get(this.new_url);
   }
 
  
