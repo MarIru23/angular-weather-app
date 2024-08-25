@@ -1,7 +1,13 @@
-<div class="min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-blue-500 to-blue-300 p-4" style="margin: -16px;">
+<div
+  class="min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-blue-500 to-blue-300 p-4"
+  style="margin: -16px"
+>
   <h1 class="text-5xl font-bold text-blue-900 mb-8">Aplicación del tiempo</h1>
 
-  <form class="relative w-full max-w-md mb-8" (submit)="onSubmit($event, cityInput.value)">
+  <form
+    class="relative w-full max-w-md mb-8"
+    (submit)="onSubmit($event, cityInput.value)"
+  >
     <div class="flex items-center justify-center">
       <button class="absolute left-2 top-1/2 transform -translate-y-1/2 p-1">
         <svg
@@ -33,18 +39,32 @@
   </form>
 
   @if (weatherList) {
-    <div class="mt-10 p-6 bg-white bg-opacity-70 backdrop-blur-lg rounded-xl shadow-lg max-w-md text-center">
-      <h2 class="text-3xl font-bold text-blue-900">{{ weatherList.name }}, {{ weatherList.sys.country }}</h2>
-      <p class="text-4xl text-blue-700 my-4">{{ weatherList.main.temp }}°C</p>
-      <p class="text-lg text-gray-700">{{ weatherList.weather.main }}</p>
-      <p class="text-sm text-gray-500">{{ weatherList.weather.description }}</p>
-      <p class="text-sm text-gray-700 mt-2">Máximas: {{ weatherList.main.temp_max }}°C</p>
-      <p class="text-sm text-gray-700">Sensación térmica: {{ weatherList.main.feels_like }}°C</p>
-      <p class="text-sm text-gray-700">Humedad: {{ weatherList.main.humidity }}%</p>
-      <p class="text-sm text-gray-700">Viento: {{ weatherList.wind.speed }} Km/h</p>
-      <p class="text-sm text-gray-700">Amanecer: {{ weatherList.sys.sunrise}}</p>
-      <p class="text-sm text-gray-700">Atardecer: {{ weatherList.sys.sunset}}</p>
-
-    </div>
+  <div
+    class="mt-10 p-6 bg-white bg-opacity-70 backdrop-blur-lg rounded-xl shadow-lg max-w-md text-center"
+  >
+    <h2 class="text-3xl font-bold text-blue-900">
+      {{ weatherList.name }}, {{ weatherList.sys.country }}
+    </h2>
+    <p class="text-4xl text-blue-700 my-4">{{ weatherList.main.temp }}°C</p>
+    <img
+      class="block mx-auto"
+      [src]="weatherList.weather[0].icon"
+      alt="weatherImg"
+    />
+    <p class="text-sm text-gray-700 mt-2">
+      Máximas: {{ weatherList.main.temp_max }}°C
+    </p>
+    <p class="text-sm text-gray-700">
+      Sensación térmica: {{ weatherList.main.feels_like }}°C
+    </p>
+    <p class="text-sm text-gray-700">
+      Humedad: {{ weatherList.main.humidity }}%
+    </p>
+    <p class="text-sm text-gray-700">
+      Viento: {{ weatherList.wind.speed }} Km/h
+    </p>
+    <p class="text-sm text-gray-700">Amanecer: {{ weatherList.sys.sunrise }}</p>
+    <p class="text-sm text-gray-700">Atardecer: {{ weatherList.sys.sunset }}</p>
+  </div>
   }
 </div>
