@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { WeatherService } from '../../services/weather.service';
 import { WeatherInterface } from '../../interfaces/weather.interface';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-weather',
@@ -11,9 +12,7 @@ import { WeatherInterface } from '../../interfaces/weather.interface';
 })
 export class WeatherComponent implements OnInit {
   weatherList!: WeatherInterface;
-  city: string = '';
-  url: string = '';
-  api_key = '62ff94c8139aae06b3d3e0c029d6c116';
+  private url: string = '';
   imageUrl = 'assets/images/';
 
   constructor(private weatherService: WeatherService) {}
@@ -22,12 +21,11 @@ export class WeatherComponent implements OnInit {
 
   onSubmit(event: Event, city: string) {
     event.preventDefault();
-    this.city = city;
-    this.getWeather();
+    this.getWeather(city);
   }
 
-  getWeather() {
-    this.url = `https://api.openweathermap.org/data/2.5/weather?q=${this.city}&appid=${this.api_key}`;
+  getWeather(city: string) {
+    this.url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${environment.apiKey}`;
     this.weatherService.getWeather(this.url).subscribe({
       next: (result) => {
         if (result) {
