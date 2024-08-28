@@ -1,14 +1,17 @@
-import { WeatherComponent } from '../components/weather/weather.component';
+import { Component } from '@angular/core';
+import { Output } from '@angular/core';
+import { EventEmitter } from '@angular/core';
 import { WeatherInterface } from '../interfaces/weather.interface';
-//import { signalStore}
 
-export interface State {
-  favCities: WeatherInterface[];
+@Component({
+  selector: 'app-state',
+  standalone: true,
+  imports: [],
+  templateUrl: './state.component.html',
+  styleUrl: './state.component.css',
+})
+export class StateComponent {
+  //@Output() addToFav = new EventEmitter<WeatherInterface>();
+  //saveCity() {
+  //this.addToFav.emit(weatherList);}
 }
-
-//tip interfaz, valor por defecto
-const initialState: State = {
-  favCities: [],
-};
-
-//export const firstState = signalStore()
