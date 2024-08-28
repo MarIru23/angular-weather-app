@@ -58,4 +58,6 @@ export class WeatherComponent implements OnInit {
     main.temp_max = kelvinToCelsius(main.temp_max);
     main.temp_min = kelvinToCelsius(main.temp_min);
   }
+
+  saveCity() {}
 }

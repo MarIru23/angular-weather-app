@@ -65,6 +65,12 @@
     </p>
     <p class="text-sm text-gray-700">Amanecer: {{ weatherList.sys.sunrise }}</p>
     <p class="text-sm text-gray-700">Atardecer: {{ weatherList.sys.sunset }}</p>
+    <button
+      (click)="saveCity()"
+      class="mt-4 bg-blue-500 hover:bg-blue-600 text-white font-semibold px-6 py-2 rounded-lg shadow-md transition-transform transform hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-blue-300"
+    >
+      Guardar Ciudad
+    </button>
   </div>
   }
 </div>
