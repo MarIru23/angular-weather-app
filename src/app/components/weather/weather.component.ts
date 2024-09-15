@@ -1,9 +1,7 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Inject, OnInit, Output } from '@angular/core';
 import { WeatherService } from '../../services/weather.service';
 import { WeatherInterface } from '../../interfaces/weather.interface';
 import { environment } from '../../../environments/environment';
-import { EmitterVisitorContext } from '@angular/compiler';
-import { State } from '@ngxs/store';
 
 @Component({
   selector: 'app-weather',
@@ -14,9 +12,8 @@ import { State } from '@ngxs/store';
 })
 export class WeatherComponent implements OnInit {
   weatherList!: WeatherInterface;
-  private url: string = '';
+  url: string = '';
   imageUrl = 'assets/images/';
-  @Output() addToFav = new EventEmitter<WeatherInterface>();
 
   constructor(private weatherService: WeatherService) {}
 
@@ -60,9 +57,5 @@ export class WeatherComponent implements OnInit {
     main.feels_like = kelvinToCelsius(main.feels_like);
     main.temp_max = kelvinToCelsius(main.temp_max);
     main.temp_min = kelvinToCelsius(main.temp_min);
-  }
-
-  saveCity() {
-    this.addToFav.emit(this.weatherList);
   }
 }

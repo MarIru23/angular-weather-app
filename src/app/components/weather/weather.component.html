@@ -66,11 +66,32 @@
     <p class="text-sm text-gray-700">Amanecer: {{ weatherList.sys.sunrise }}</p>
     <p class="text-sm text-gray-700">Atardecer: {{ weatherList.sys.sunset }}</p>
     <button
-      (click)="saveCity()"
       class="mt-4 bg-blue-500 hover:bg-blue-600 text-white font-semibold px-6 py-2 rounded-lg shadow-md transition-transform transform hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-blue-300"
     >
       Guardar Ciudad
     </button>
   </div>
   }
+  <!--
+  <div *ngIf="favCities().length > 0" class="mt-10 w-full max-w-md">
+    <h2 class="text-2xl font-bold text-blue-900 mb-4">Ciudades Guardadas</h2>
+    <ul>
+      <li
+        *ngFor="let city of favCities()"
+        class="mb-2 p-4 bg-white bg-opacity-70 backdrop-blur-lg rounded-xl shadow-md"
+      >
+        <h3 class="text-lg font-semibold">
+          {{ city.name }}, {{ city.sys.country }}
+        </h3>
+        <p class="text-gray-700">Temperatura: {{ city.main.temp }}°C</p>
+        <button
+          (click)="removeCity(city.sys.id)"
+          class="mt-2 bg-red-500 hover:bg-red-600 text-white font-semibold px-4 py-2 rounded-lg shadow-md transition-transform transform hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-red-300"
+        >
+          Eliminar Ciudad
+        </button>
+      </li>
+    </ul>
+  </div>
+  -->
 </div>
